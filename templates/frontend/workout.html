@@ -1,0 +1,230 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Let's being healthy together</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{%static 'assets/img/favicon.ico'%}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="{%static 'https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700'%}" rel="stylesheet" />
+        <link href="{%static 'https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic'%}" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="{%static 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css'%}" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{%static 'css/styles.css'%}" rel="stylesheet" />
+    </head>
+
+    <style>
+        .text{
+			text-align: left;
+			margin-left: 150px;
+		}
+		#w, #h{
+			color: #222f3e;
+			text-align: left;
+			font-size: 20px;
+			font-weight: 200;
+			outline: none;
+			border: none;
+			background: none;
+			border-bottom: 1px solid #341f97;
+			width: 200px;
+		}
+			#w:focus, #h:focus{
+				border-bottom: 2px solid #341f97;
+				width: 300px;
+				transition: 0.5s;
+			}
+			#result{
+				color: #341f97;
+            }
+            #criteria{
+                color: #ee5253;
+            }
+			#btn{
+				font-family: inherit;
+				margin-top: 10px;
+				border: none;
+				color: #fff;
+				background-image: linear-gradient(120deg,#ff6b6b, #5f27cd);
+				width: 150px;
+				padding: 10px;
+				border-radius: 30px;
+				outline: none;
+				cursor: pointer;
+			}
+			#btn:hover{
+				box-shadow: 1px 1px 10px #341f97;
+			}
+			#info{
+				font-size: 12px;
+				font-family: inherit;
+			}
+    </style>
+
+    <script type="text/javascript">
+		function CAL() {
+			var h=document.getElementById('h').value;
+			var w=document.getElementById('w').value;
+            var gender=document.getElementById('gender').value;
+            
+
+            if (gender=='male'){
+                var lbm = 0.32810 * w + (0.33929 * h) - 29.5336
+                var bmr = 370 + (21.6 * lbm)
+                var bmro=bmr.toFixed()
+                document.getElementById("criteria").innerHTML=("แคลลอรี่ที่ควรบริโภคต่อวัน : "+bmro+"kcal")
+                
+            }
+            else if
+               (gender=='female'){
+                var lbm = 0.29569 * w + (0.42813 * h) - 43.2933
+                var bmr = 370 + (21.6 * lbm)
+                var bmro=bmr.toFixed()
+                document.getElementById("criteria").innerHTML=("แคลลอรี่ที่ควรบริโภคต่อวัน : "+bmro+"kcal")
+                
+            } 
+		}
+    </script>
+    
+    
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="{%url 'index'%}">Being Healthy</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#cal">Calories</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#calcal">Calories Calculator</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#food">Food VS Cal</a></li>
+                        
+                    </ul> 
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead" id="cal">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-10 align-self-end">
+                        <h1 class="text-uppercase text-white font-weight-bold">What is Calories ?</h1>
+                        <hr class="divider my-4" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <p class="text-white-75 font-weight-light mb-5">แคลอรี่ (Calories) คือ หน่วยวัดพลังงานอย่างหนึ่งของอาหาร ส่วนใหญ่แล้ว จะหมายถึงพลังงานที่ได้รับจากการบริโภคอาหารและเครื่องดื่ม หรือพลังงานที่ร่างกายใช้ทำกิจกรรมต่าง ๆ  มักเรียกว่า "กิโลแคลอรี่" (Kilocalories) ซึ่งจะเขียนอยู่บนฉลากอาหารว่า kcal </p>
+                        <p class="text-white-75 font-weight-light mb-5">โดยทั่วไปแล้ว ร่างกายต้องการแคลอรี่ เพื่อนำมาใช้เป็นพลังงานในการทำกิจกรรมต่าง ๆ ตั้งแต่หายใจไปจนถึงกิจกรรมที่ต้องเคลื่อนไหวร่างกาย เช่น การเดินหรือการวิ่ง อย่างไรก็ตาม หากรับจำนวนแคลอรี่มากกว่าที่เผาผลาญออกไป ร่างกายจะแปรรูปพลังงานเหล่านั้นเป็นไขมันส่วนเกินเก็บสะสมตามร่างกาย ส่งผลให้น้ำหนักตัวเพิ่มขึ้น</p>
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#calcal">Get Started!</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Services-->
+        <section class="page-section bg-dark text-black" id="calcal" style="height: 550px;">
+            <div class="container">
+                <h2 class="text-center mt-0">Calories Calculator</h2>
+                <div style="
+                    margin-top: 100px;
+                    text-align: center;
+                    width: 500px;
+			        position: relative;
+			        top: 20%;
+			        left: 50%;
+			        background-color: #fff;
+                    transform: translate(-50%, -50%);
+			        padding: 20px;
+			        border-radius: 10px;
+			        box-shadow: 1px 1px 20px #ee5253;">
+                        <h2>Calories Calculator</h2>
+                        <form>
+                            <input type="radio" id="gender" name="test" value="male">
+                            <label for="male">Male</label><br>
+                            <input type="radio" id="gender" name="test" value="female">
+                            <label for="female">Female</label><br>
+                        </form>
+                        <p class="text">Height</p>
+                        <input type="text" id="h">
+                        <p class="text">Weight</p>
+                        <input type="text" id="w">
+                        <p id="result"></p>
+                        <p id="criteria"></p>
+                        <button id="btn" onClick="CAL()">Calculate</button>
+                        <p id="info">Please enter your gender , height [cm] and weight [kg]</p>
+                    </div>
+                    
+                    
+            </div>
+                
+            </div>
+        </section>
+
+        <!-- Services-->
+        <section class="page-section" id="food">
+            <div class="container" >
+                <h2 class="text-center mt-0">Neutrient Calories</h2>
+                <hr class="divider my-4" /> 
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <img src="static/assets/img/meat.png" style="height: 75px; margin-bottom: 30px;">
+                            <!-- <i class="fas fa-4x fa-meat text-primary mb-4"></i> -->
+                            <h3 class="h4 mb-2">Protein</h3>
+                            <p class="text-muted mb-0">โปรตีน 1 กรัม ให้พลังงาน 4 กิโลแคลอรี่</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <img src="static/assets/img/bread.png" style="height: 75px; margin-bottom: 30px;">
+                            <!-- <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i> -->
+                            <h3 class="h4 mb-2">Carbohydrate</h3>
+                            <p class="text-muted mb-0">คาร์โบไฮเดรต 1 กรัม ให้พลังงาน 4 กิโลแคลอรี่</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <img src="static/assets/img/hamburger.png" style="height: 75px; margin-bottom: 30px;">
+                            <!-- <i class="fas fa-4x fa-globe text-primary mb-4"></i> -->
+                            <h3 class="h4 mb-2">Fat</h3>
+                            <p class="text-muted mb-0">ไขมัน 1 กรัม ให้พลังงาน 9 กิโลแคลอรี่</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <img src="static/assets/img/mineral-water.png" style="height: 75px; margin-bottom: 30px;">
+                            <!-- <i class="fas fa-4x fa-heart text-primary mb-4"></i> -->
+                            <h3 class="h4 mb-2">Water</h3>
+                            <p class="text-muted mb-0">อย่าปล่อยให้ร่างกายขาดน้ำควรดื่มวันละ 2.2 ลิตร หรือประมาณ 9 แก้ว</p>
+                        </div>
+                    </div> 
+                    
+                    
+            </div> 
+                 </div> 
+            </div>
+        </section>
+        
+        
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{%static 'js/scripts.js'%}"></script>
+    </body>
+</html>
